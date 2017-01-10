@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChatBotDebug.VM"
+             x:Class="ChatBotDebug.ChatPage"
+             Title="Chat with our Bot">
+
+  <ContentPage.Content>
+    <RelativeLayout x:Name="allContent" >
+      <ListView x:Name="messagesField"
+          RelativeLayout.WidthConstraint=
+                      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1}"
+          RelativeLayout.HeightConstraint=
+                      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-50}"
+          RelativeLayout.XConstraint ="0"
+          RelativeLayout.YConstraint =
+                      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0,
+                             Constant=0}"
+          HasUnevenRows="true"
+          
+          >
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout>
+                <Label Text="{Binding author, StringFormat='{0} schrieb:'}" />
+                <!--HorizontalOptions="{Binding isMe}"-->
+                <Label Text="{Binding text}" />
+                <Label Text="{Binding timestamp, StringFormat='um {0:T}'}" />
+              </StackLayout>
+
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+
+      </ListView>
+
+      <RelativeLayout BackgroundColor="Green"
+          RelativeLayout.WidthConstraint=
+                      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1}"
+          HeightRequest="50"
+          RelativeLayout.XConstraint ="0"
+          RelativeLayout.YConstraint =
+                      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1,
+                             Constant=-50}" >
+
+        <Entry x:Name="inputField"
+          RelativeLayout.WidthConstraint=
+                      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant= -50}"
+          
+          RelativeLayout.XConstraint ="0"
+          RelativeLayout.YConstraint ="0"
+          Completed="OnSend"
+          >
+          <Entry.Placeholder>Schreiben Sie uns doch.</Entry.Placeholder>
+
+
+        </Entry>
+
+        <Button BackgroundColor="Blue"
+           RelativeLayout.WidthConstraint=
+                      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0,
+                             Constant= 50}"
+          
+           RelativeLayout.XConstraint =
+                       "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant= -50}"
+
+           RelativeLayout.YConstraint ="0"
+           Clicked="OnSend">
+
+
+        </Button>
+
+      </RelativeLayout>
+
+    </RelativeLayout>
+  </ContentPage.Content>
+</ContentPage>

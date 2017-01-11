@@ -23,7 +23,7 @@ namespace ChatBotDebug
 
             activeChat = new Chat(_appManager, participantId);
             Storage.receiver = new System.Collections.ObjectModel.ObservableCollection<Util.Message>();
-            messagesField.ItemsSource = Storage.receiver;
+            messagesField.ItemsSource = activeChat.receiver;
         }
 
 

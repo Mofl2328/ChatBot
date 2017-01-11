@@ -76,7 +76,7 @@ namespace ChatBotDebug.Model.Connector
         private void addToReceiver(string from, string text)
         {
 
-            Storage.receiver.Add(new ChatBotDebug.Util.Message(from, text));
+            receiver.Add(new ChatBotDebug.Util.Message(from, text));
 
 
         }
